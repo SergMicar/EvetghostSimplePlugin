@@ -70,6 +70,9 @@ eg.RegisterPlugin(
 # 2018-08-12 rev.1080
 #     * FAV_TOGGLE changed action ID (for compatibility 0.5)
 #     * PiP Sound on/off changed action ID (for compatibility 0.5)
+# 2020-01-28 rev.2020
+#     * Возможность программно отключать и включать реагирование на команды LIRC
+#     * http://iptv.gen12.net/bugtracker/view.php?id=1574
 
 import _winreg
 from eg.WinApi import FindWindow, SendMessageTimeout
@@ -252,7 +255,8 @@ MyActionList = (
 ),
 (eg.ActionGroup, 'GroupOther', 'Other', None,
   (
-    (MsgAction, 'CTRL_PRESS',                'Press CONTROL key - ?',                       None, 1),
+    (MsgAction, 'KEY_TOGGLE_LIRC',           'LIRC TOGGLE',                                 None, 162),
+	(MsgAction, 'CTRL_PRESS',                'Press CONTROL key - ?',                       None, 1),
     (MsgAction, 'SHIFT_PRESS',               'Press SHIFT key - ?',                         None, 2),
     (MsgAction, 'ControlPanel',              'On/Off Control Panel - ok',                   None, 72),
     (MsgAction, 'UpdateAllProg',             'EPG.Update TVguide for all channels - ok',    None, 39),
